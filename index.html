@@ -12,7 +12,7 @@
     }
 
     body {
-      background: #f0f4f8;
+      background: #eef2ff;
       color: #1e293b;
       font-family: 'Courier New', monospace;
       min-height: 100vh;
@@ -20,7 +20,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 32px 20px;
     }
 
     h1 {
@@ -71,7 +71,7 @@
     }
 
     .passage-btn {
-      background: #e2e8f0;
+      background: #dde4f5;
       border: 1px solid #94a3b8;
       color: #1e293b;
       font-weight: 700;
@@ -97,45 +97,61 @@
 
     .typing-box {
       background: #ffffff;
-      border: 1px solid #cbd5e1;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      border-radius: 12px;
+      border: 1px solid #c7d2fe;
+      box-shadow: 0 4px 24px rgba(99, 102, 241, 0.1);
+      border-radius: 14px;
       padding: 32px;
-      max-width: 720px;
+      max-width: 780px;
       width: 100%;
       margin-bottom: 20px;
     }
 
     .passage-title {
       font-size: 0.78rem;
-      color: #475569;
-      margin-bottom: 16px;
+      color: #6d28d9;
+      margin-bottom: 14px;
       text-transform: uppercase;
       letter-spacing: 1px;
       font-weight: 800;
     }
 
-    .text-display {
-      font-size: 1.4rem;
-      line-height: 2.6;
-      letter-spacing: 0.5px;
-      word-break: break-word;
-      min-height: 120px;
-      margin-bottom: 24px;
-      font-weight: 700;
+    .progress-bar-wrap {
+      background: #e2e8f0;
+      border-radius: 4px;
+      height: 5px;
+      margin-bottom: 20px;
+      overflow: hidden;
     }
 
-    .char {
-      position: relative;
+    .progress-bar {
+      height: 100%;
+      background: #7c3aed;
+      border-radius: 4px;
+      transition: width 0.2s;
+      width: 0%;
+    }
+
+    .text-display {
+      font-size: 1.25rem;
+      line-height: 2.4;
+      letter-spacing: 0.3px;
+      word-break: break-word;
+      margin-bottom: 24px;
+      font-weight: 700;
+      background: #f8faff;
+      border: 1px solid #e0e7ff;
+      border-radius: 8px;
+      padding: 20px 24px;
+      white-space: pre-wrap;
     }
 
     .char.correct {
-      color: #16a34a;
+      color: #15803d;
     }
 
     .char.incorrect {
       color: #dc2626;
-      background: rgba(220, 38, 38, 0.12);
+      background: rgba(220, 38, 38, 0.13);
       border-radius: 2px;
     }
 
@@ -146,7 +162,7 @@
     }
 
     .char.pending {
-      color: #64748b;
+      color: #475569;
     }
 
     @keyframes blink {
@@ -157,16 +173,19 @@
     .input-area {
       width: 100%;
       background: #f8fafc;
-      border: 2px solid #cbd5e1;
+      border: 2px solid #c7d2fe;
       border-radius: 8px;
       padding: 14px 18px;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-family: 'Courier New', monospace;
       color: #1e293b;
       font-weight: 700;
       outline: none;
       transition: border-color 0.2s;
       caret-color: #7c3aed;
+      resize: none;
+      line-height: 1.8;
+      min-height: 110px;
     }
 
     .input-area:focus {
@@ -194,12 +213,12 @@
       cursor: pointer;
       transition: all 0.2s;
       letter-spacing: 0.5px;
+      font-weight: 700;
     }
 
     .btn-primary {
       background: #7c3aed;
       color: #ffffff;
-      font-weight: bold;
     }
 
     .btn-primary:hover {
@@ -210,7 +229,6 @@
       background: #e2e8f0;
       color: #1e293b;
       border: 1px solid #94a3b8;
-      font-weight: 700;
     }
 
     .btn-secondary:hover {
@@ -222,7 +240,7 @@
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.75);
+      background: rgba(0, 0, 0, 0.7);
       align-items: center;
       justify-content: center;
       z-index: 100;
@@ -235,16 +253,16 @@
     .result-card {
       background: #ffffff;
       border: 2px solid #7c3aed;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.18);
       border-radius: 16px;
       padding: 48px;
       text-align: center;
-      max-width: 400px;
+      max-width: 420px;
       width: 90%;
     }
 
     .result-card h2 {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       color: #4c1d95;
       margin-bottom: 32px;
     }
@@ -270,26 +288,10 @@
       letter-spacing: 1px;
     }
 
-    .progress-bar-wrap {
-      background: #e2e8f0;
-      border-radius: 4px;
-      height: 4px;
-      margin-bottom: 20px;
-      overflow: hidden;
-    }
-
-    .progress-bar {
-      height: 100%;
-      background: #7c3aed;
-      border-radius: 4px;
-      transition: width 0.2s;
-      width: 0%;
-    }
-
     footer {
       margin-top: 24px;
       font-size: 0.75rem;
-      color: #475569;
+      color: #64748b;
       font-weight: 600;
     }
   </style>
@@ -297,7 +299,7 @@
 <body>
 
   <h1>영타 연습</h1>
-  <p class="subtitle">짧은 글을 따라 쓰며 타이핑 실력을 키워보세요</p>
+  <p class="subtitle">문단을 따라 쓰며 타이핑 실력을 키워보세요</p>
 
   <div class="stats-bar">
     <div class="stat">
@@ -322,16 +324,15 @@
       <div class="progress-bar" id="progressBar"></div>
     </div>
     <div class="text-display" id="textDisplay"></div>
-    <input
+    <textarea
       class="input-area"
       id="inputArea"
-      type="text"
       placeholder="여기를 클릭하고 타이핑을 시작하세요..."
       autocomplete="off"
       autocorrect="off"
       autocapitalize="off"
       spellcheck="false"
-    >
+    ></textarea>
   </div>
 
   <div class="controls">
@@ -341,7 +342,7 @@
 
   <div class="result-overlay" id="resultOverlay">
     <div class="result-card">
-      <h2>완료!</h2>
+      <h2>🎉 완료!</h2>
       <div class="result-stats">
         <div class="stat">
           <div class="result-stat-value" id="finalWpm">0</div>
@@ -363,73 +364,71 @@
     </div>
   </div>
 
-  <footer>Press Tab to skip a passage &nbsp;·&nbsp; Press Esc to reset</footer>
+  <footer>Tab → 다음 지문 &nbsp;·&nbsp; Esc → 다시 시작</footer>
 
   <script>
     const passages = [
       {
         title: "The Little Prince — Antoine de Saint-Exupéry",
-        text: "All grown-ups were once children, although few of them remember it."
+        text: "All grown-ups were once children, although few of them remember it. And I think it is a great pity that they forget. They forget what it felt like to wonder, to imagine, and to see the world as a place full of magic and mystery. The most beautiful things in the world cannot be seen or touched. They are felt with the heart."
       },
       {
         title: "Pride and Prejudice — Jane Austen",
-        text: "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife."
+        text: "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife. However little known the feelings or views of such a man may be on his first entering a neighbourhood, this truth is so well fixed in the minds of the surrounding families, that he is considered as the rightful property of some one or other of their daughters."
       },
       {
         title: "1984 — George Orwell",
-        text: "It was a bright cold day in April, and the clocks were striking thirteen."
+        text: "It was a bright cold day in April, and the clocks were striking thirteen. Winston Smith, his chin nuzzled into his breast in an effort to escape the vile wind, slipped quickly through the glass doors of Victory Mansions, though not quickly enough to prevent a swirl of gritty dust from entering along with him. The hallway smelt of boiled cabbage and old rag mats."
       },
       {
         title: "Moby-Dick — Herman Melville",
-        text: "Call me Ishmael. Some years ago, never mind how long precisely, I thought I would sail about a little and see the watery part of the world."
+        text: "Call me Ishmael. Some years ago, never mind how long precisely, having little money in my pocket and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth, I take to the sea."
       },
       {
         title: "The Great Gatsby — F. Scott Fitzgerald",
-        text: "In my younger and more vulnerable years my father gave me some advice that I've been turning over in my mind ever since."
+        text: "In my younger and more vulnerable years my father gave me some advice that I have been turning over in my mind ever since. Whenever you feel like criticizing anyone, he told me, just remember that all the people in this world have not had the advantages that you have had. He did not say any more, but we had always been unusually communicative in a reserved way."
       },
       {
         title: "To Kill a Mockingbird — Harper Lee",
-        text: "When he was nearly thirteen, my brother Jem got his arm badly broken at the elbow."
+        text: "Maycomb was an old town, but it was a tired old town when I first knew it. In rainy weather the streets turned to red slop; grass grew on the sidewalks, the courthouse sagged in the square. Somehow, it was hotter then. Men's stiff collars wilted by nine in the morning. Ladies bathed before noon, after their three-o'clock naps, and by nightfall were like soft teacakes with frostings of sweat."
       },
       {
         title: "A Tale of Two Cities — Charles Dickens",
-        text: "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness."
+        text: "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair. We had everything before us, we had nothing before us."
       },
       {
         title: "The Alchemist — Paulo Coelho",
-        text: "It's the possibility of having a dream come true that makes life interesting."
+        text: "It is the possibility of having a dream come true that makes life interesting. And when you want something, all the universe conspires in helping you to achieve it. People are capable, at any time in their lives, of doing what they dream of. You will never be able to escape from your heart. So it is better to listen to what it has to say."
       },
       {
         title: "Sherlock Holmes — Arthur Conan Doyle",
-        text: "Elementary, my dear Watson. When you have eliminated the impossible, whatever remains, however improbable, must be the truth."
+        text: "When you have eliminated the impossible, whatever remains, however improbable, must be the truth. It is a capital mistake to theorize before one has data. Insensibly one begins to twist facts to suit theories, instead of theories to suit facts. I never guess. It is a shocking habit, destructive to the logical faculty. Data, data, data. I cannot make bricks without clay."
       },
       {
         title: "Anna Karenina — Leo Tolstoy",
-        text: "Happy families are all alike; every unhappy family is unhappy in its own way."
-      },
-      {
-        title: "Don Quixote — Miguel de Cervantes",
-        text: "Too much sanity may be madness, and the maddest of all is to see life as it is and not as it should be."
+        text: "Happy families are all alike; every unhappy family is unhappy in its own way. Everything was in confusion in the Oblonskys house. The wife had discovered that the husband was carrying on an intrigue with a French girl who had been a governess in their family, and she had announced to her husband that she could not go on living in the same house with him."
       },
       {
         title: "The Old Man and the Sea — Ernest Hemingway",
-        text: "He was an old man who fished alone in a skiff in the Gulf Stream and he had gone eighty-four days now without taking a fish."
+        text: "He was an old man who fished alone in a skiff in the Gulf Stream and he had gone eighty-four days now without taking a fish. In the first forty days a boy had been with him. But after forty days without a fish the boy's parents had told him that the old man was now definitely and finally salao, which is the worst form of unlucky, and the boy had gone at their orders in another boat."
+      },
+      {
+        title: "Brave New World — Aldous Huxley",
+        text: "A squat grey building of only thirty-four stories. Over the main entrance the words Central London Hatchery and Conditioning Centre, and, in a shield, the World State's motto, Community, Identity, Stability. The enormous room on the ground floor faced towards the north. Cold for all the summer beyond the panes, for all the tropical heat of the room itself, a harsh thin light glared through the windows."
       }
     ];
 
     let currentPassageIndex = 0;
-    let typedCount = 0;
-    let errorCount = 0;
     let startTime = null;
     let timerInterval = null;
     let finished = false;
 
     const textDisplay = document.getElementById('textDisplay');
-    const inputArea = document.getElementById('inputArea');
+    const inputArea  = document.getElementById('inputArea');
     const passageTitle = document.getElementById('passageTitle');
-    const wpmEl = document.getElementById('wpm');
+    const wpmEl      = document.getElementById('wpm');
     const accuracyEl = document.getElementById('accuracy');
-    const timerEl = document.getElementById('timer');
+    const timerEl    = document.getElementById('timer');
     const progressBar = document.getElementById('progressBar');
     const passageSelector = document.getElementById('passageSelector');
 
@@ -449,13 +448,14 @@
       const passage = passages[currentPassageIndex].text;
       let html = '';
       for (let i = 0; i < passage.length; i++) {
-        const ch = passage[i] === ' ' ? '&nbsp;' : passage[i];
+        const raw = passage[i];
+        const ch  = raw === ' ' ? '&nbsp;' : raw === '\n' ? '\n' : raw;
         if (i < typed.length) {
-          if (typed[i] === passage[i]) {
+          if (typed[i] === raw) {
             html += `<span class="char correct">${ch}</span>`;
           } else {
-            const wrongCh = typed[i] === ' ' ? '&nbsp;' : typed[i];
-            html += `<span class="char incorrect">${wrongCh}</span>`;
+            const wrongCh = typed[i] === ' ' ? '&nbsp;' : (typed[i] || '');
+            html += `<span class="char incorrect">${wrongCh || ch}</span>`;
           }
         } else if (i === typed.length) {
           html += `<span class="char current">${ch}</span>`;
@@ -473,15 +473,13 @@
 
     function resetTyping() {
       clearInterval(timerInterval);
-      typedCount = 0;
-      errorCount = 0;
       startTime = null;
-      finished = false;
+      finished   = false;
       inputArea.value = '';
       inputArea.classList.remove('has-error');
-      wpmEl.textContent = '0';
+      wpmEl.textContent      = '0';
       accuracyEl.textContent = '100%';
-      timerEl.textContent = '0s';
+      timerEl.textContent    = '0s';
       progressBar.style.width = '0%';
       passageTitle.textContent = passages[currentPassageIndex].title;
       renderText('');
@@ -498,10 +496,10 @@
       document.getElementById('resultOverlay').classList.remove('show');
     }
 
-    function updateStats(typed) {
+    function calcStats(typed) {
       const elapsed = startTime ? (Date.now() - startTime) / 1000 : 0;
-      const words = typed.trim().split(/\s+/).filter(Boolean).length;
-      const wpm = elapsed > 0 ? Math.round((words / elapsed) * 60) : 0;
+      const words   = typed.trim().split(/\s+/).filter(Boolean).length;
+      const wpm     = elapsed > 0 ? Math.round((words / elapsed) * 60) : 0;
 
       const passage = passages[currentPassageIndex].text;
       let errors = 0;
@@ -512,9 +510,7 @@
         ? Math.max(0, Math.round(((typed.length - errors) / typed.length) * 100))
         : 100;
 
-      wpmEl.textContent = wpm;
-      accuracyEl.textContent = acc + '%';
-      progressBar.style.width = Math.min(100, (typed.length / passage.length * 100)) + '%';
+      return { wpm, acc, elapsed: Math.round(elapsed), errors };
     }
 
     inputArea.addEventListener('input', () => {
@@ -523,7 +519,7 @@
         return;
       }
 
-      const typed = inputArea.value;
+      const typed   = inputArea.value;
       const passage = passages[currentPassageIndex].text;
 
       if (!startTime && typed.length > 0) {
@@ -534,19 +530,21 @@
         }, 500);
       }
 
-      // Prevent over-typing
       if (typed.length > passage.length) {
         inputArea.value = typed.slice(0, passage.length);
         return;
       }
 
-      const lastChar = typed[typed.length - 1];
-      const expectedChar = passage[typed.length - 1];
-      const hasError = lastChar !== expectedChar;
-      inputArea.classList.toggle('has-error', hasError && typed.length > 0);
+      const lastIdx = typed.length - 1;
+      const hasError = lastIdx >= 0 && typed[lastIdx] !== passage[lastIdx];
+      inputArea.classList.toggle('has-error', hasError);
 
       renderText(typed);
-      updateStats(typed);
+
+      const { wpm, acc } = calcStats(typed);
+      wpmEl.textContent      = wpm;
+      accuracyEl.textContent = acc + '%';
+      progressBar.style.width = Math.min(100, (typed.length / passage.length) * 100) + '%';
 
       if (typed === passage) {
         finished = true;
@@ -554,18 +552,10 @@
         inputArea.classList.remove('has-error');
         progressBar.style.width = '100%';
 
-        const elapsed = Math.round((Date.now() - startTime) / 1000);
-        const words = passage.trim().split(/\s+/).length;
-        const wpm = elapsed > 0 ? Math.round((words / elapsed) * 60) : 0;
-        let errors = 0;
-        for (let i = 0; i < typed.length; i++) {
-          if (typed[i] !== passage[i]) errors++;
-        }
-        const acc = Math.max(0, Math.round(((typed.length - errors) / typed.length) * 100));
-
-        document.getElementById('finalWpm').textContent = wpm;
-        document.getElementById('finalAccuracy').textContent = acc + '%';
-        document.getElementById('finalTime').textContent = elapsed + 's';
+        const { wpm: fw, acc: fa, elapsed: fe } = calcStats(typed);
+        document.getElementById('finalWpm').textContent      = fw;
+        document.getElementById('finalAccuracy').textContent = fa + '%';
+        document.getElementById('finalTime').textContent     = fe + 's';
 
         setTimeout(() => {
           document.getElementById('resultOverlay').classList.add('show');
@@ -573,16 +563,18 @@
       }
     });
 
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        resetTyping();
-      } else if (e.key === 'Tab') {
+    // Tab 키가 textarea 안에서 포커스 이동하지 않도록
+    inputArea.addEventListener('keydown', (e) => {
+      if (e.key === 'Tab') {
         e.preventDefault();
         nextPassage();
       }
     });
 
-    // Init
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') resetTyping();
+    });
+
     resetTyping();
   </script>
 </body>
